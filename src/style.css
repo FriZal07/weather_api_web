@@ -10,8 +10,9 @@ body, #app{
 
 #container{
     display: grid;
-    grid-template-rows: 1fr 8fr 1fr;
+    grid-template-rows: 15% 85%;
     height: 100%;
+
 }
 
 
@@ -28,20 +29,256 @@ body, #app{
 
 #middle_container{
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    max-height: 100%;
 
-    justify-content: center;
-    align-items: center;
+    height: auto;
 }
 
-#bottom_container{
-    background-color: #f0f0f0;
+#weather_container, #forecast_container {
+    padding: 10px;
+    background-color: #f9f9f9;
+    gap: 10px;
+
+    div {
+
+        padding: 5px;
+        &:nth-child(odd) {
+            background-color: #e6e6e6;
+        }
+        
+        &:nth-child(even) {
+            background-color: #d4d4d4;
+        }
+    }
+}
+
+
+#weather_container {
+    flex: 0 1 50%;
 
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
 
-    justify-content: center;
-    align-items: center;
+    #weather_location_and_time_container {
+        flex: 1 0 0.2;
+        width: 40%;
+
+        display: flex;
+        flex-direction: row;
+
+        #weather_location {
+            flex: 1;
+            min-width: 0;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #weather_time {
+            flex: 1;
+            min-width: 0;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    #weather_description_container {
+        flex: 1 0 0.8;
+        width: 40%;
+        min-width: 350px;
+        height: 100%;
+
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 120px;
+        
+
+        #weather_description_top_container {
+            display: flex;
+            flex-direction: column;
+
+            #weather_description_top_top_container{
+
+                display: flex;
+                flex-direction: row;
+
+                flex: 1;
+
+                #weather_icon {
+                    flex: 1;
+                    min-width: 0;
+                    justify-content: center;
+                    align-items: center;
+
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                #top_top_right{
+                    flex: 0.5;
+
+                    display: flex;
+                    flex-direction: column;
+
+                    
+                    #weather_desc_data{
+                        flex: 0.4;
+
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                    #weather_desc_temperature{
+                        flex: 0.6;
+
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                    
+                }
+
+            }
+
+            #weather_short_desc{
+                flex: 0.2;
+            }
+        }
+
+        #weather_detailed_descrption_container {
+            display: flex;
+            flex-direction: row;
+
+            #weather_precipitation_container {
+                flex: 1;
+
+                display: flex;
+                flex-direction: column;
+
+                #weather_precipitation_title {
+                    flex: 0.2;
+
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                #weather_precipitation_value {
+                    flex: 1;
+
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+
+            #weather_humidity_container {
+                flex: 1;
+
+                display: flex;
+                flex-direction: column;
+
+                #weather_humidity_title {
+                    flex: 0.2;
+
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                #weather_humidity_value {
+                    flex: 1;
+
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+
+            #weather_wind_container {
+                flex: 1;
+
+                display: flex;
+                flex-direction: column;
+
+                #weather_wind_speed_title {
+                    flex: 0.2;
+
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                #weather_wind_speed_value {
+                    flex: 1;
+
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+        }
+    }
+}
+
+#forecast_container {
+    flex: 0 1 50%;
+    min-height: 0;
+    
+    display: flex;
+    flex-direction: column;
+
+    #forecast_title {
+        flex: 0.1;
+        height: 100%;
+                       
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #forecast_cards_container {
+        flex: 1;
+
+        display: flex;
+        flex-direction: column;
+
+        .forecast_card{
+            flex: 1;
+            height: 100px;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            .forecast_card_date{
+                flex: 0.2;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .forecast_card_desc{
+                flex: 0.8;
+
+                display: flex;
+                align-items: flex-start;;
+            }
+
+        }
+    }
 }
